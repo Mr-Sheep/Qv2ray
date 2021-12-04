@@ -69,12 +69,18 @@ jobs:
       if: matrix.config.has_msvc
       uses: ilammy/msvc-dev-cmd@v1
 
-    - name: Install Qt
-      uses: jurplel/install-qt-action@v2.14.0
+    - name: Cache Qt
+      id: cache-qt
+      uses: actions/cache@v1  # not v2!
       with:
-        version: 6.2.1
-        py7zrversion: ' '
-        aqtversion: ' '
+        path: ../Qt
+        key: ${{ runner.os }}-QtCache
+
+    - name: Install Qt
+      uses: jurplel/install-qt-action@v2
+      with:
+        cached: ${{ steps.cache-qt.outputs.cache-hit }}
+
 
     - name: run-vcpkg
       uses: lukka/run-vcpkg@v7.3
