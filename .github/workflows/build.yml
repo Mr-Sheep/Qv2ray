@@ -81,7 +81,6 @@ jobs:
       with:
         cached: ${{ steps.cache-qt.outputs.cache-hit }}
 
-
     - name: run-vcpkg
       uses: lukka/run-vcpkg@v7.3
       with:
