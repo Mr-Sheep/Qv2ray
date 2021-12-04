@@ -45,10 +45,16 @@ jobs:
             vcpkgTriplet: x64-linux
           }
         - {
-            name: "macOS", artifact: "macOS",
+            name: "macOS x64", artifact: "macOS",
             os: macos-latest,
             has_release: true,
             vcpkgTriplet: x64-osx
+          }
+        - {
+            name: "macOS arm", artifact: "macOS",
+            os: macos-latest,
+            has_release: true,
+            vcpkgTriplet: arm64-osx
           }
 
     steps:
