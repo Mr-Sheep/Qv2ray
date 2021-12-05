@@ -77,9 +77,10 @@ jobs:
         key: ${{ runner.os }}-QtCache
 
     - name: Install Qt
-      uses: jurplel/install-qt-action@v2
+      uses: jurplel/install-qt-action@v2.14.0
       with:
         cached: true
+        version: 6.2.1  
 
     - name: run-vcpkg
       uses: lukka/run-vcpkg@v7.3
